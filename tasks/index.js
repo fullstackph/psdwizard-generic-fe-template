@@ -3,13 +3,17 @@
 const gulp = require('gulp')
 
 const path = {
-  baseUrl: process.cwd()
+  baseUrl: process.env.PWD
 }
 
 // import serve from './tasks/serve.js'
-require('./tasks/serve')(gulp, path)
+require('./serve')(gulp, path)
+require('./assets')(gulp, path)
 
 gulp.task('default', gulp.series(
+  gulp.parallel(
+    'assets'
+  ),
   'serve',
 
   done => done()
