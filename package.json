@@ -1,0 +1,15 @@
+{
+  "name": "psdwizard-bootstrap4-template",
+  "version": "1.0.0",
+  "description": "A boilerplate for Bootstrap projects using Sass 7-1 architecture and JS revealing module patterns.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp --gulpfile ./gulpfile.js"
+  },
+  "author": "PSDWizard",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^4.0.0"
+  }
+}
