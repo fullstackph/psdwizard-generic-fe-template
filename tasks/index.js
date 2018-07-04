@@ -15,7 +15,7 @@ const path = {
   sources: {
     sass: [
       process.env.PWD + '/src/styles/main.scss'
-    ],
+    ]
   }
 }
 

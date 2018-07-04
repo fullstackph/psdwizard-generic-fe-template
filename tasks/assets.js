@@ -1,7 +1,6 @@
 'use strict'
 
 const sass = require('gulp-sass')
-// const cssmin = require('gulp-cssnano')
 const cssmin = require('gulp-cssmin')
 const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
@@ -9,7 +8,7 @@ const autoprefixer = require('gulp-autoprefixer')
 
 module.exports = (gulp, path) => {
 
-  let assetsTask = ['assets:html', 'assets:sass'];
+  let assetsTask = ['assets:html', 'assets:sass', 'assets:js'];
 
   gulp.task('assets:html', done => {
     return gulp.src(path.baseURL + '/src/**/*.html')
@@ -39,7 +38,8 @@ module.exports = (gulp, path) => {
   })
 
   gulp.task('assets:js', done => {
-
+    return gulp.src(`${path.baseURL}/**/*.js`)
+    
     done => done()
   })
 
