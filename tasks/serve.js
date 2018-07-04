@@ -13,12 +13,14 @@ module.exports = (gulp, path) => {
   gulp.task('serve', done => {
     browserSync.init({
       notify: false,
-      server: path.baseUrl + '/src/',
+      server: path.src,
       port: 3000
     })
 
     gulp.watch([path.baseUrl + '/src/**/*.html'])
       .on('all', gulp.series('assets:html', 'reload'))
+    gulp.watch([path.baseUrl + '/src/**/*.scss'])
+      .on('all', gulp.series('assets:sass', 'reload'))
 
     done => done()
   })

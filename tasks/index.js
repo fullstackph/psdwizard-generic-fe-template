@@ -3,10 +3,22 @@
 const gulp = require('gulp')
 
 const path = {
-  baseUrl: process.env.PWD
+  baseUrl: process.env.PWD,
+  src: process.env.PWD + '/src/',
+  dist: process.env.PWD + '/dist/',
+
+  sass: {
+    outputStyle: 'compressed',
+    includePaths: []
+  },
+
+  sources: {
+    sass: [
+      process.env.PWD + '/src/styles/main.scss'
+    ],
+  }
 }
 
-// import serve from './tasks/serve.js'
 require('./serve')(gulp, path)
 require('./assets')(gulp, path)
 
