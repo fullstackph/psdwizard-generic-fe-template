@@ -14,7 +14,7 @@ module.exports = (gulp, path) => {
     return gulp.src(path.baseURL + '/src/**/*.html')
       .pipe(gulp.dest(`${path.dist}`))
 
-    done => done()
+    done()
   })
 
   gulp.task('assets:sass', done => {
@@ -34,13 +34,13 @@ module.exports = (gulp, path) => {
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(`${path.src}/styles/`))
 
-    done => done()
+    done()
   })
 
   gulp.task('assets:js', done => {
     return gulp.src(`${path.baseURL}/**/*.js`)
     
-    done => done()
+    done()
   })
 
   gulp.task('assets', gulp.parallel(assetsTask, done => done()))

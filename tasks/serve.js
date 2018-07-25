@@ -7,7 +7,7 @@ module.exports = (gulp, path) => {
   gulp.task('reload', done => {
     browserSync.reload()
 
-    done => done()
+    done()
   })
   
   gulp.task('serve', done => {
@@ -24,7 +24,7 @@ module.exports = (gulp, path) => {
     gulp.watch([path.baseUrl + '/**/*.js'])
       .on('all', gulp.series('assets:js', 'reload'))
 
-    done => done()
+    done()
   })
 
 }
