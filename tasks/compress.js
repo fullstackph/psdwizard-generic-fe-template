@@ -9,7 +9,8 @@ const babel = require('gulp-babel')
 module.exports = (gulp, path) => {
 
   const parallelTasks = ['build:image']
-  const seriesTasks = ['build:concatjs']
+  const seriesTasks = [ 'build:concatjs', 'build:vendorsJS']
+  const vendorsJS = [`${path.src}scripts/vendors/jquery.min.js`, `${path.src}scripts/vendors/tether.min.js`, `${path.src}scripts/vendors/bootstrap.min.js`]
 
   gulp.task('build:image', done => {
     return gulp.src(`${path.src}assets/images/**/*`)
@@ -22,8 +23,18 @@ module.exports = (gulp, path) => {
     done()
   })
 
+  gulp.task('build:vendorsJS', done => {
+    return gulp.src(vendorsJS)
+      .pipe(concat('bundle.js'))
+      .pipe(jsmin())
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest(`${path.dist}scripts/`))
+
+    done()
+  })
+
   gulp.task('build:concatjs', done => {
-    return gulp.src(`${path.src}/scripts/**/*`)
+    return gulp.src(`${path.src}scripts/**/*.js`)
       .pipe(babel())
       .pipe(concat('bundle.js'))
       .pipe(jsmin())

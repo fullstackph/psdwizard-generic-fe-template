@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const removehtml = require('gulp-remove-html')
+const inject = require('gulp-inject');
 
 const path = {
   baseUrl: process.env.PWD,
@@ -8,9 +9,11 @@ const path = {
 }
 
 const parallelTask = ['build:html', 'build:css', 'build:fonts']
+//const sources = gulp.src('./scripts/bundle.min.js', {read: false})
 
 gulp.task('build:html', done => {
 return gulp.src(`${path.src}**/*.html`)
+  // .pipe(inject(gulp.src('./scripts/bundle.min.js', {read: false})))
   .pipe(removehtml())
   .pipe(gulp.dest(path.dist))
 
