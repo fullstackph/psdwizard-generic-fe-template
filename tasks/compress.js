@@ -5,19 +5,38 @@ const imagemin = require('gulp-imagemin')
 const concat =  require('gulp-concat')
 const jsmin = require('gulp-jsmin')
 const babel = require('gulp-babel')
+const imageminMozjpeg = require('imagemin-mozjpeg')
+const imageminPngquant = require('imagemin-pngquant')
+const imageminGiflossy = require('imagemin-giflossy')
 
 module.exports = (gulp, path) => {
-
   const parallelTasks = ['build:image']
   const seriesTasks = [ 'build:concatjs', 'build:vendorsJS']
   const vendorsJS = [`${path.src}scripts/vendors/jquery.min.js`, `${path.src}scripts/vendors/tether.min.js`, `${path.src}scripts/vendors/bootstrap.min.js`]
 
   gulp.task('build:image', done => {
     return gulp.src(`${path.src}assets/images/**/*`)
-      .pipe(imagemin({
-        progressive: true,
-        optimizationLevel: 7
-      }))
+      .pipe(imagemin([
+        imageminPngquant({
+          speed: 1,
+          quality: 70
+        }),
+        imageminMozjpeg({
+          quality: 50
+        }),
+        imageminGiflossy({
+          optimizationLevel: 3,
+          optimize: 3, //keep-empty: Preserve empty transparent frames
+          lossy: 2
+        }),
+        // imagemin.jpegtran({progressive: true}),
+        // imagemin.optipng({optimizationLevel: 7}),
+        imagemin.svgo({
+          plugins: [
+            {removeViewBox: false},
+          ]
+        })
+      ]))
       .pipe(gulp.dest(`${path.dist}assets/images/`))
 
     done()
