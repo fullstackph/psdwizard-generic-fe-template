@@ -6,6 +6,10 @@
 * Adjust image compression settings at `tasks/compress.js` under task: `'build:image'`
 
 ## Changelog
+### 1.1.1
+  * Use imagemin-pngquant for pngs
+  * Rollback to working versions of imagemin-pngquant and pngquant-bin
+  * Remove dictator check of yarn install
 ### 1.1 
   * Add readme.md
   * Enforce yarn as package manager for new installs
