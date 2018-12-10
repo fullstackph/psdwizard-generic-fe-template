@@ -4,7 +4,6 @@
   "description": "A boilerplate for Bootstrap projects using Sass 7-1 architecture and JS revealing module patterns.",
   "main": "index.js",
   "scripts": {
-    "preinstall": "node -e 'if (process.env.npm_execpath.indexOf('yarn') === -1)throw new Error(\"PLEASE USE YARN INSTEAD :D https://yarnpkg.com/en/docs/install\")'",
     "dev": "gulp --gulpfile ./tasks/index.js",
     "build": "gulp --gulpfile ./tasks/build.js"
   },

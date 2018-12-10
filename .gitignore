@@ -2,3 +2,4 @@
 src/styles/main.min.css
 src/styles/main.min.css.map
 /dist
+package-lock.json
