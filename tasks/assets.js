@@ -1,7 +1,7 @@
 'use strict'
 
 const sass = require('gulp-sass')
-const cssmin = require('gulp-cssmin')
+const cleanCSS = require('gulp-clean-css')
 const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
@@ -20,15 +20,15 @@ module.exports = (gulp, path) => {
   gulp.task('assets:sass', done => {
     return gulp.src(path.sources.sass)
       .pipe(sourcemaps.init())
-      .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+      .pipe(sass().on('error', sass.logError))
       .pipe(autoprefixer({
-        browsers: ['last 2 versions', 'safari 5', 'ie 6', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'],
+        browsers: ['last 2 versions'],
         cascade: false
       }))
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(cssmin())
+      .pipe(cleanCSS({compatibility: 'ie8'}))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(`${path.src}/styles/`))
 
