@@ -4,9 +4,12 @@ const removehtml = require('gulp-remove-html')
 const inject = require('gulp-inject-string')
 
 const path = {
-  baseUrl: process.env.PWD,
-  src: process.env.PWD + '/src/',
-  dist: process.env.PWD + '/dist/'
+  // baseUrl: process.env.PWD,
+  // src: process.env.PWD + '/src/',
+  // dist: process.env.PWD + '/dist/'
+  baseUrl: '..',
+  src: '../src/',
+  dist: '../dist/'
 }
 
 const parallelTask = ['build:html', 'build:css', 'build:fonts']
