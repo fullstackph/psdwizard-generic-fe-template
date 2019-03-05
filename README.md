@@ -4,13 +4,14 @@
   * https://www.npmjs.com/get-npm
 * Run with `yarn dev`or `npm run dev`
 * Build with `yarn build` or `npm run build`
+* Deploy to `gh-pages` with `yarn deploy` or `npm deploy`
 
 ## Changelog
 ### 1.2.0
   * optimize bundling of js files, fix their dependency connections
   * remove image compression from bundling
   * add prebuild for `dist` cleaning prior build
-  * 
+  * add `yarn deploy` command for `gh-pages`
 ### 1.1.3
   * remove package locks from `.gitignore`
 ### 1.1.2
