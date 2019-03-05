@@ -18,18 +18,18 @@ module.exports = (gulp, path) => {
   gulp.task('build:image', done => {
     return gulp.src(`${path.src}assets/images/**/*`)
       .pipe(imagemin([
-        imageminPngquant({
-          speed: 1,
-          quality: 70
-        }),
-        imageminMozjpeg({
-          quality: 50
-        }),
-        imageminGiflossy({
-          optimizationLevel: 3,
-          optimize: 3, //keep-empty: Preserve empty transparent frames
-          lossy: 2
-        }),
+        // imageminPngquant({
+        //   speed: 1,
+        //   quality: 70
+        // }),
+        // imageminMozjpeg({
+        //   quality: 50
+        // }),
+        // imageminGiflossy({
+        //   optimizationLevel: 3,
+        //   optimize: 3, //keep-empty: Preserve empty transparent frames
+        //   lossy: 2
+        // }),
         // imagemin.jpegtran({progressive: true}),
         // imagemin.optipng({optimizationLevel: 7}),
         imagemin.svgo({
@@ -46,7 +46,7 @@ module.exports = (gulp, path) => {
   gulp.task('build:vendorsJS', done => {
     return gulp.src(vendorsJS)
       .pipe(concat('bundle.js'))
-      .pipe(jsmin())
+      // .pipe(jsmin())
       .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(`${path.dist}scripts/`))
 
@@ -57,7 +57,7 @@ module.exports = (gulp, path) => {
     return gulp.src(`${path.src}scripts/**/*.js`)
       .pipe(babel())
       .pipe(concat('bundle.js'))
-      .pipe(jsmin())
+      // .pipe(jsmin())
       .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(`${path.dist}scripts/`))
 
