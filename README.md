@@ -3,8 +3,6 @@
 
 ## Usage
 * Install dependencies with `yarn install`
-  * https://yarnpkg.com/en/docs/install
-  * https://www.npmjs.com/get-npm
 * Run localhost environment with `yarn dev`
 * Build production files with `yarn build`
 * Deploy to `gh-pages` with `yarn deploy`
