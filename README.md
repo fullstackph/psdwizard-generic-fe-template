@@ -8,6 +8,8 @@
 * Deploy to `gh-pages` with `yarn deploy`
 
 ## Changelog
+### 1.2.1
+  * add sample for multi-page bundles, add dependency only as needed
 ### 1.2.0
   * encourage yarn as package manager
   * optimize bundling of js files, fix their dependency connections

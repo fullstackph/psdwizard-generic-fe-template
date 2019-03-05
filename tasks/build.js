@@ -12,16 +12,17 @@ const path = {
   dist: '../dist/'
 }
 
-const parallelTask = ['build:html', 'build:css', 'build:fonts']
+// const parallelTask = ['build:html', 'build:css', 'build:fonts']
+const parallelTask = ['build:css', 'build:fonts']
 
-gulp.task('build:html', done => {
-  return gulp.src(`${path.src}**/*.html`)
-    .pipe(removehtml())
-    .pipe(inject.after('</main>', '\n<script src="./scripts/bundle.min.js"></script>\n'))
-    .pipe(gulp.dest(path.dist))
+// gulp.task('build:html', done => {
+//   return gulp.src(`${path.src}**/*.html`)
+//     .pipe(removehtml())
+//     .pipe(inject.after('</main>', '\n<script src="./scripts/bundle.min.js"></script>\n'))
+//     .pipe(gulp.dest(path.dist))
 
-  done()
-})
+//   done()
+// })
 
 gulp.task('build:css', done => {
   return gulp.src(`${path.src}styles/main.min.css`)
