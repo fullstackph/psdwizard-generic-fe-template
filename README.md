@@ -12,6 +12,8 @@
   * remove image compression from bundling
   * add prebuild for `dist` cleaning prior build
   * add `yarn deploy` command for `gh-pages`
+  * add swiper demo, add modal demo
+  * clean console logs
 ### 1.1.3
   * remove package locks from `.gitignore`
 ### 1.1.2

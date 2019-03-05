@@ -13,3 +13,24 @@
     text-align: center;
   }
 }
+
+
+.swiper-container {
+  margin-top: 40px;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+
+  border: 2px #007aff solid;
+  border-radius: 3px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -7,6 +7,12 @@ AppName.Modules.ThemeModule = (function() {
   ////////////////////
   var _privateMethod = function() {
     // private stuff
+
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
   };
 
   /////////////////////

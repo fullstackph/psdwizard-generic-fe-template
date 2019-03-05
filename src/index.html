@@ -76,30 +76,43 @@
               <p>Use this document as a way to quickly start any new project.
                 <br> All you get is this text and a mostly barebones HTML document.</p>
               <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  Launch demo modal
-                </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+              </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        Hi I am a sample modal
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Hi I am a sample modal
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <!-- Swiper -->
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">I'm a pagination slider without navigation. <br/> Swipe Right</div>
+                  <div class="swiper-slide">Swipe Right Again</div>
+                  <div class="swiper-slide">Swipe Left <br /> (or Swipe Right again.)</div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -107,7 +120,7 @@
     </div>
   </main>
   <!--<Deject>-->
-  <!-- build:js scripts/bundle.min.js -->  
+  <!-- build:js scripts/bundle.min.js -->
   <script src="./scripts/vendors/jquery.min.js"></script>
   <script src="./scripts/vendors/tether.min.js"></script>
   <script src="./scripts/vendors/bootstrap.min.js"></script>
