@@ -6,6 +6,11 @@
 * Build with `yarn build` or `npm run build`
 
 ## Changelog
+### 1.2.0
+  * optimize bundling of js files, fix their dependency connections
+  * remove image compression from bundling
+  * add prebuild for `dist` cleaning prior build
+  * 
 ### 1.1.3
   * remove package locks from `.gitignore`
 ### 1.1.2

@@ -1,19 +1,21 @@
 'use strict'
 
-const rename = require('gulp-rename')
+// const rename = require('gulp-rename')
+// const concat =  require('gulp-concat')
+// const jsmin = require('gulp-jsmin')
+// const babel = require('gulp-babel')
 const imagemin = require('gulp-imagemin')
-const concat =  require('gulp-concat')
-const jsmin = require('gulp-jsmin')
-const babel = require('gulp-babel')
-const imageminMozjpeg = require('imagemin-mozjpeg')
-const imageminPngquant = require('imagemin-pngquant')
-const imageminGiflossy = require('imagemin-giflossy')
+// const imageminMozjpeg = require('imagemin-mozjpeg')
+// const imageminPngquant = require('imagemin-pngquant')
+// const imageminGiflossy = require('imagemin-giflossy')
+const useref = require('gulp-useref')
+const uglify = require('gulp-uglify')
+const gulpIf = require('gulp-if')
 
 module.exports = (gulp, path) => {
 
   const parallelTasks = ['build:image']
-  const seriesTasks = [ 'build:concatjs', 'build:vendorsJS']
-  const vendorsJS = [`${path.src}scripts/vendors/jquery.min.js`, `${path.src}scripts/vendors/tether.min.js`, `${path.src}scripts/vendors/bootstrap.min.js`]
+  const seriesTasks = ['build:useref']
 
   gulp.task('build:image', done => {
     return gulp.src(`${path.src}assets/images/**/*`)
@@ -43,26 +45,33 @@ module.exports = (gulp, path) => {
     done()
   })
 
-  gulp.task('build:vendorsJS', done => {
-    return gulp.src(vendorsJS)
-      .pipe(concat('bundle.js'))
-      // .pipe(jsmin())
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(`${path.dist}scripts/`))
+  // gulp.task('build:vendorsJS', done => {
+  //   return gulp.src(vendorsJS)
+  //     .pipe(concat('bundle.js'))
+  //     // .pipe(jsmin())
+  //     .pipe(rename({suffix: '.min'}))
+  //     .pipe(gulp.dest(`${path.dist}scripts/`))
 
-    done()
-  })
+  //   done()
+  // })
 
-  gulp.task('build:concatjs', done => {
-    return gulp.src(`${path.src}scripts/**/*.js`)
-      .pipe(babel())
-      .pipe(concat('bundle.js'))
-      // .pipe(jsmin())
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(`${path.dist}scripts/`))
+  // gulp.task('build:concatjs', done => {
+  //   return gulp.src(forBundleJS)
+  //     .pipe(babel())
+  //     .pipe(concat('bundle.js'))
+  //     // .pipe(jsmin())
+  //     .pipe(rename({suffix: '.min'}))
+  //     .pipe(gulp.dest(`${path.dist}scripts/`))
 
-    done()
-  })
+  //   done()
+  // })
+
+  gulp.task('build:useref', function(){
+  return gulp.src(`${path.src}*.html`)
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulp.dest(`${path.dist}`))
+  });
 
   gulp.task('build:compress', gulp.series(
     gulp.parallel(
