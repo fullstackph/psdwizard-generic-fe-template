@@ -1,13 +1,17 @@
+## Prerequisites
+* [Install `yarn` package manager](https://yarnpkg.com/lang/en/docs/install/)
+
 ## Usage
-* Install dependencies with `yarn install` or `npm install`
+* Install dependencies with `yarn install`
   * https://yarnpkg.com/en/docs/install
   * https://www.npmjs.com/get-npm
-* Run with `yarn dev`or `npm run dev`
-* Build with `yarn build` or `npm run build`
-* Deploy to `gh-pages` with `yarn deploy` or `npm deploy`
+* Run localhost environment with `yarn dev`
+* Build production files with `yarn build`
+* Deploy to `gh-pages` with `yarn deploy`
 
 ## Changelog
 ### 1.2.0
+  * encourage yarn as package manager
   * optimize bundling of js files, fix their dependency connections
   * remove image compression from bundling
   * add prebuild for `dist` cleaning prior build
