@@ -7,7 +7,6 @@ AppName.Modules.ThemeModule = (function() {
   ////////////////////
   var _privateMethod = function() {
     // private stuff
-    console.log('init here');
   };
 
   /////////////////////
