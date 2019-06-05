@@ -5,10 +5,14 @@ const cleanCSS = require('gulp-clean-css')
 const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
+const postcss = require('gulp-postcss')
+const sorting = require('postcss-sorting')
+const sortingConfig = require('../CSSSortConfig.json')
+
 
 module.exports = (gulp, path) => {
 
-  let assetsTask = ['assets:html', 'assets:sass', 'assets:js'];
+  let assetsTask = ['assets:html', 'assets:sass-sort', 'assets:sass', 'assets:js'];
 
   gulp.task('assets:html', done => {
     return gulp.src(path.baseURL + '/src/**/*.html')
@@ -28,16 +32,30 @@ module.exports = (gulp, path) => {
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(cleanCSS({compatibility: 'ie8'}))
+      .pipe(cleanCSS({
+        compatibility: 'ie8'
+      }))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(`${path.src}/styles/`))
 
     done()
   })
 
+  gulp.task('assets:sass-sort', done => {
+    var processors = [
+      sorting(sortingConfig)
+    ]
+
+    return gulp.src('../src/styles/layout/_header.scss', {base: './'}).pipe(postcss(processors, { syntax: require('postcss-scss') })).pipe(gulp.dest('./'))
+
+    done()
+  })
+
+
+
   gulp.task('assets:js', done => {
     return gulp.src(`${path.baseURL}/**/*.js`)
-    
+
     done()
   })
 

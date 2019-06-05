@@ -9,7 +9,7 @@ module.exports = (gulp, path) => {
 
     done()
   })
-  
+
   gulp.task('serve', done => {
     browserSync.init({
       notify: false,
@@ -19,6 +19,10 @@ module.exports = (gulp, path) => {
 
     gulp.watch([path.baseUrl + '/src/**/*.html'])
       .on('all', gulp.series('assets:html', 'reload'))
+
+      gulp.watch([path.baseUrl + '/src/**/*.scss'])
+      .on('all', gulp.series('assets:sass-sort', 'reload'))
+
     gulp.watch([path.baseUrl + '/src/**/*.scss'])
       .on('all', gulp.series('assets:sass', 'reload'))
     gulp.watch([path.baseUrl + '/**/*.js'])
