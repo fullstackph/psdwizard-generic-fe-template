@@ -20,8 +20,9 @@ module.exports = (gulp, path) => {
     gulp.watch([path.baseUrl + '/src/**/*.html'])
       .on('all', gulp.series('assets:html', 'reload'))
 
-      gulp.watch([path.baseUrl + '/src/**/*.scss'])
-      .on('all', gulp.series('assets:sass-sort', 'reload'))
+    // Watch SCSS Files then apply PostCSS Sorting
+    gulp.watch(['../src/styles/**/*.scss', '!../src/styles/main.scss'])
+      .on('all', gulp.series('assets:sass-sort'))
 
     gulp.watch([path.baseUrl + '/src/**/*.scss'])
       .on('all', gulp.series('assets:sass', 'reload'))

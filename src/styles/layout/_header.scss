@@ -3,30 +3,3 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
-.header {
-    position: relative;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    display: inline;
-    flex-wrap: wrap;
-    align-items: center;
-    order:1;
-
-    background-size: cover;
-    border: 1px solid #fff;
-    border-color: #fff;
-
-    visibility: hidden;
-    cursor: pointer;
-
-    &:hover{
-        color: red;
-    }
-    background: transparent;
-    &::before {
-        display: flex;
-    }
-}
