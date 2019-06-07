@@ -1,7 +1,12 @@
 //main: ../../main.scss
 @keyframes progress-bar-stripes {
-  from { background-position: $progress-height 0; }
-  to { background-position: 0 0; }
+  from {
+    background-position: $progress-height 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
 }
 
 .progress {
@@ -11,8 +16,11 @@
   display: flex;
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
+
   font-size: $progress-font-size;
+
   background-color: $progress-bg;
+
   @include border-radius($progress-border-radius);
   @include box-shadow($progress-box-shadow);
 }
@@ -22,22 +30,27 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
+
   color: $progress-bar-color;
   text-align: center;
+
   background-color: $progress-bar-bg;
+
   @include transition($progress-bar-transition);
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
 }
 
 .progress-bar-striped {
-  @include gradient-striped();
   background-size: $progress-height $progress-height;
+
+  @include gradient-striped();
 }
 
 .progress-bar-animated {

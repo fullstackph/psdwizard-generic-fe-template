@@ -2,15 +2,17 @@
 
 .fade {
   opacity: 0;
-  @include transition($transition-fade);
 
   &.show {
     opacity: 1;
   }
+
+  @include transition($transition-fade)
 }
 
 .collapse {
   display: none;
+
   &.show {
     display: block;
   }
@@ -30,7 +32,9 @@ tbody {
 
 .collapsing {
   position: relative;
+
   height: 0;
   overflow: hidden;
+
   @include transition($transition-collapse);
 }

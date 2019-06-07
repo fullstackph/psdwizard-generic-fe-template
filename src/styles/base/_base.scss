@@ -24,6 +24,7 @@ a {
 
   @include on-event {
     outline: 0;
+
     @include boxshadow(none);
   }
 }
@@ -34,15 +35,16 @@ a {
 input[type="email"],
 input[type="password"],
 input[type="text"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-focus-ring-color: none;
   outline: none;
 
   @include on-event {
     @include boxshadow(none);
   }
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-focus-ring-color: none
 }
 
 //styles for navbar-toggler
@@ -54,18 +56,17 @@ input[type="text"] {
 
   .icon-bar {
     display: block;
-    height: 4px;
     width: 29px;
-
-    background: #000;
-
-    @include transition(0.5s cubic-bezier(0.65, 0.05, 0.36, 1));
-
-    @include boxshadow(none);
+    height: 4px;
 
     &+.icon-bar {
       margin-top: 4px;
     }
+
+    @include transition(0.5s cubic-bezier(0.65, 0.05, 0.36, 1));
+    @include boxshadow(none);
+
+    background: #000
   }
 
   &[aria-expanded="true"] {

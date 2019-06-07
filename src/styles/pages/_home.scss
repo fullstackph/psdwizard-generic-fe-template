@@ -6,14 +6,13 @@
 
 .home {
   transition: all .2s ease-in-out;
-  
+
   .section-intro {
     padding: 40px 0;
 
     text-align: center;
   }
 }
-
 
 .swiper-container {
   margin-top: 40px;
@@ -26,11 +25,12 @@
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
+  font-size: 18px;
+  text-align: center;
+
+  background: #fff;
+}

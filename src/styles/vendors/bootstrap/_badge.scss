@@ -5,19 +5,21 @@
 
 .badge {
   display: inline-block;
+  vertical-align: baseline;
   padding: $badge-padding-y $badge-padding-x;
+
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
-  vertical-align: baseline;
-  @include border-radius($badge-border-radius);
 
   // Empty badges collapse automatically
   &:empty {
     display: none;
   }
+
+  @include border-radius($badge-border-radius)
 }
 
 // Quick fix for badges in buttons
@@ -33,6 +35,7 @@
 .badge-pill {
   padding-right: $badge-pill-padding-x;
   padding-left: $badge-pill-padding-x;
+
   @include border-radius($badge-pill-border-radius);
 }
 
@@ -40,7 +43,8 @@
 //
 // Contextual variations (linked badges get darker on :hover).
 
-@each $color, $value in $theme-colors {
+@each $color,
+$value in $theme-colors {
   .badge-#{$color} {
     @include badge-variant($value);
   }

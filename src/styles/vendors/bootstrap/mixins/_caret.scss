@@ -28,38 +28,46 @@
   @if $enable-caret {
     &::after {
       display: inline-block;
+      vertical-align: $caret-width * .85;
+      margin-left: $caret-width * .85;
       width: 0;
       height: 0;
-      margin-left: $caret-width * .85;
-      vertical-align: $caret-width * .85;
-      content: "";
-      @if $direction == down {
+
+      @if $direction==down {
         @include caret-down;
-      } @else if $direction == up {
+      }
+
+      @else if $direction==up {
         @include caret-up;
-      } @else if $direction == right {
+      }
+
+      @else if $direction==right {
         @include caret-right;
       }
+
+      content: ""
     }
 
-    @if $direction == left {
+    &:empty::after {
+      margin-left: 0;
+    }
+
+    @if $direction==left {
       &::after {
         display: none;
       }
 
       &::before {
         display: inline-block;
+        vertical-align: $caret-width * .85;
+        margin-right: $caret-width * .85;
         width: 0;
         height: 0;
-        margin-right: $caret-width * .85;
-        vertical-align: $caret-width * .85;
-        content: "";
-        @include caret-left;
-      }
-    }
 
-    &:empty::after {
-      margin-left: 0;
+        @include caret-left;
+
+        content: "";
+      }
     }
   }
 }

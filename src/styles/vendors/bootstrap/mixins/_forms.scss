@@ -13,13 +13,17 @@
 @mixin form-control-focus() {
   &:focus {
     color: $input-focus-color;
+
     background-color: $input-focus-bg;
     border-color: $input-focus-border-color;
     outline: 0;
+
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
       box-shadow: $input-box-shadow, $input-focus-box-shadow;
-    } @else {
+    }
+
+    @else {
       box-shadow: $input-focus-box-shadow;
     }
   }
@@ -29,8 +33,9 @@
 @mixin form-validation-state($state, $color) {
   .#{$state}-feedback {
     display: none;
-    width: 100%;
     margin-top: $form-feedback-margin-top;
+    width: 100%;
+
     font-size: $form-feedback-font-size;
     color: $color;
   }
@@ -39,19 +44,23 @@
     position: absolute;
     top: 100%;
     z-index: 5;
+
     display: none;
-    max-width: 100%; // Contain to parent when possible
     padding: .5rem;
     margin-top: .1rem;
+    max-width: 100%; // Contain to parent when possible
+
     font-size: .875rem;
     line-height: 1;
     color: #fff;
+
     background-color: rgba($color, .8);
     border-radius: .2rem;
   }
 
   .form-control,
   .custom-select {
+
     .was-validated &:#{$state},
     &.is-#{$state} {
       border-color: $color;
@@ -61,31 +70,33 @@
         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
       }
 
-      ~ .#{$state}-feedback,
-      ~ .#{$state}-tooltip {
+      ~.#{$state}-feedback,
+      ~.#{$state}-tooltip {
         display: block;
       }
     }
   }
 
   .form-check-input {
+
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .form-check-label {
+      ~.form-check-label {
         color: $color;
       }
 
-      ~ .#{$state}-feedback,
-      ~ .#{$state}-tooltip {
+      ~.#{$state}-feedback,
+      ~.#{$state}-tooltip {
         display: block;
       }
     }
   }
 
   .custom-control-input {
+
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .custom-control-label {
+      ~.custom-control-label {
         color: $color;
 
         &::before {
@@ -93,19 +104,19 @@
         }
       }
 
-      ~ .#{$state}-feedback,
-      ~ .#{$state}-tooltip {
+      ~.#{$state}-feedback,
+      ~.#{$state}-tooltip {
         display: block;
       }
 
       &:checked {
-        ~ .custom-control-label::before {
+        ~.custom-control-label::before {
           @include gradient-bg(lighten($color, 10%));
         }
       }
 
       &:focus {
-        ~ .custom-control-label::before {
+        ~.custom-control-label::before {
           box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-focus-width rgba($color, .25);
         }
       }
@@ -114,21 +125,24 @@
 
   // custom file
   .custom-file-input {
+
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .custom-file-label {
+      ~.custom-file-label {
         border-color: $color;
 
-        &::before { border-color: inherit; }
+        &::before {
+          border-color: inherit;
+        }
       }
 
-      ~ .#{$state}-feedback,
-      ~ .#{$state}-tooltip {
+      ~.#{$state}-feedback,
+      ~.#{$state}-tooltip {
         display: block;
       }
 
       &:focus {
-        ~ .custom-file-label {
+        ~.custom-file-label {
           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
         }
       }

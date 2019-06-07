@@ -8,27 +8,20 @@ const autoprefixer = require('gulp-autoprefixer')
 const postcss = require('gulp-postcss')
 const sorting = require('postcss-sorting')
 const sortingConfig = require('../CSSSortConfig.json')
-const filter = require('gulp-filter')
-
+const cache = require('gulp-cached')
+const beautify = require('gulp-jsbeautifier');
 
 module.exports = (gulp, path) => {
 
   let assetsTask = ['assets:html', 'assets:sass-sort', 'assets:sass', 'assets:js'];
 
   gulp.task('assets:html', done => {
-    return gulp.src(path.baseURL + '/src/**/*.html')
-      .pipe(gulp.dest(`${path.dist}`))
-
-    done()
-  })
-
-  gulp.task('assets:sass-sort', done => {
-    var processors = [
-      sorting(sortingConfig)
-    ]
-    return gulp.src(['../src/styles/**/*.scss', '!../src/styles/main.scss'], {base: './'})
-      .pipe(postcss(processors, { syntax: require('postcss-scss') }))
+    return gulp.src('../src/**/*.html', {base: './'})
+      .pipe(cache('assets:html'))
+      .pipe(beautify({ indent_size: 2 }))
+      .pipe(cache('assets:html'))
       .pipe(gulp.dest('./'))
+
     done()
   })
 
@@ -43,13 +36,30 @@ module.exports = (gulp, path) => {
       .pipe(rename({
         suffix: '.min'
       }))
-      .pipe(cleanCSS({compatibility: 'ie8'}))
+      .pipe(cleanCSS({
+        compatibility: 'ie8'
+      }))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(`${path.src}/styles/`))
 
+    done()
+  })
+
+  gulp.task('assets:sass-sort', done => {
+    let processors = [
+      sorting(sortingConfig)
+    ]
+
+    return gulp.src(['../src/styles/**/*.scss', '!../src/styles/main.scss'], {base: './'})
+      .pipe(cache('assets:sass-sort'))
+      .pipe(postcss(processors, { syntax: require('postcss-scss') }))
+      .pipe(beautify({ indent_size: 2 }))
+      .pipe(cache('assets:sass-sort'))
+      .pipe(gulp.dest('./'))
 
     done()
   })
+
   gulp.task('assets:js', done => {
     return gulp.src(`${path.baseURL}/**/*.js`)
 
