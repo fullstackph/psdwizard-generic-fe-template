@@ -4,9 +4,12 @@
 
 .alert {
   position: relative;
+
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
+
   border: $alert-border-width solid transparent;
+
   @include border-radius($alert-border-radius);
 }
 
@@ -34,7 +37,9 @@
     position: absolute;
     top: 0;
     right: 0;
+
     padding: $alert-padding-y $alert-padding-x;
+
     color: inherit;
   }
 }
@@ -44,7 +49,8 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-@each $color, $value in $theme-colors {
+@each $color,
+$value in $theme-colors {
   .alert-#{$color} {
     @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
   }

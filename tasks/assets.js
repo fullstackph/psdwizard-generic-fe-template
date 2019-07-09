@@ -50,7 +50,7 @@ module.exports = (gulp, path) => {
       sorting(sortingConfig)
     ]
 
-    return gulp.src(['../src/styles/**/*.scss', '!../src/styles/main.scss', '!../src/styles/utils/*.scss', '!../src/styles/vendors/**/*.scss'], {base: './'})
+    return gulp.src(['../src/styles/**/*.scss', '!../src/styles/main.scss', '!../src/styles/vendors/bootstrap/_functions.scss', '!../src/styles/vendors/bootstrap/_variables.scss', '!../src/styles/vendors/_bootstrap.scss'], {base: './'})
       .pipe(cache('assets:sass-sort'))
       .pipe(postcss(processors, { syntax: require('postcss-scss') }))
       .pipe(beautify({ indent_size: 2 }))

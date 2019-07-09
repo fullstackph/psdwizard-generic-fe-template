@@ -7,26 +7,16 @@
 
 .form-control {
   display: block;
-  width: 100%;
   padding: $input-padding-y $input-padding-x;
+  width: 100%;
+
   font-size: $font-size-base;
   line-height: $input-line-height;
   color: $input-color;
+
   background-color: $input-bg;
-  background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
-
-  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @if $enable-rounded {
-    // Manually use the if/else instead of the mixin to account for iOS override
-    border-radius: $input-border-radius;
-  } @else {
-    // Otherwise undo the iOS default
-    border-radius: 0;
-  }
-
-  @include box-shadow($input-box-shadow);
-  @include transition($input-transition);
+  background-clip: padding-box;
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -34,12 +24,10 @@
     border: 0;
   }
 
-  // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus();
-
   // Placeholder
   &::placeholder {
     color: $input-placeholder-color;
+
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
@@ -52,9 +40,27 @@
   &:disabled,
   &[readonly] {
     background-color: $input-disabled-bg;
+
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @if $enable-rounded {
+    // Manually use the if/else instead of the mixin to account for iOS override
+    border-radius: $input-border-radius;
+  }
+
+  @else {
+    // Otherwise undo the iOS default
+    border-radius: 0;
+  }
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus()
 }
 
 select.form-control {
@@ -69,6 +75,7 @@ select.form-control {
     // match the appearance of the native widget.
     // See https://github.com/twbs/bootstrap/issues/19398.
     color: $input-color;
+
     background-color: $input-bg;
   }
 }
@@ -91,6 +98,7 @@ select.form-control {
   padding-top: calc(#{$input-padding-y} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
   margin-bottom: 0; // Override the `<label>/<legend>` default
+
   font-size: inherit; // Override the `<legend>` default
   line-height: $input-line-height;
 }
@@ -98,6 +106,7 @@ select.form-control {
 .col-form-label-lg {
   padding-top: calc(#{$input-padding-y-lg} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y-lg} + #{$input-border-width});
+
   font-size: $font-size-lg;
   line-height: $input-line-height-lg;
 }
@@ -105,6 +114,7 @@ select.form-control {
 .col-form-label-sm {
   padding-top: calc(#{$input-padding-y-sm} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y-sm} + #{$input-border-width});
+
   font-size: $font-size-sm;
   line-height: $input-line-height-sm;
 }
@@ -117,11 +127,13 @@ select.form-control {
 
 .form-control-plaintext {
   display: block;
-  width: 100%;
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+  width: 100%;
+
   line-height: $input-line-height;
+
   background-color: transparent;
   border: solid transparent;
   border-width: $input-border-width 0;
@@ -144,8 +156,10 @@ select.form-control {
 
 .form-control-sm {
   padding: $input-padding-y-sm $input-padding-x-sm;
+
   font-size: $font-size-sm;
   line-height: $input-line-height-sm;
+
   @include border-radius($input-border-radius-sm);
 }
 
@@ -157,8 +171,10 @@ select.form-control-sm {
 
 .form-control-lg {
   padding: $input-padding-y-lg $input-padding-x-lg;
+
   font-size: $font-size-lg;
   line-height: $input-line-height-lg;
+
   @include border-radius($input-border-radius-lg);
 }
 
@@ -199,8 +215,8 @@ select.form-control-lg {
   margin-right: -5px;
   margin-left: -5px;
 
-  > .col,
-  > [class*="col-"] {
+  >.col,
+  >[class*="col-"] {
     padding-right: 5px;
     padding-left: 5px;
   }
@@ -213,16 +229,18 @@ select.form-control-lg {
 
 .form-check {
   position: relative;
+
   display: block;
   padding-left: $form-check-input-gutter;
 }
 
 .form-check-input {
   position: absolute;
+
   margin-top: $form-check-input-margin-y;
   margin-left: -$form-check-input-gutter;
 
-  &:disabled ~ .form-check-label {
+  &:disabled~.form-check-label {
     color: $text-muted;
   }
 }
@@ -235,8 +253,6 @@ select.form-control-lg {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   padding-left: 0; // Override base .form-check
   margin-right: $form-check-inline-margin-x;
@@ -244,10 +260,14 @@ select.form-control-lg {
   // Undo .form-check-input defaults and add some `margin-right`.
   .form-check-input {
     position: static;
+
     margin-top: 0;
     margin-right: $form-check-inline-input-margin-x;
     margin-left: 0;
   }
+
+  -webkit-box-align: center;
+  -ms-flex-align: center
 }
 
 
@@ -275,12 +295,6 @@ select.form-control-lg {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center; // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
 
   // Because we use flex, the initial sizing of checkboxes is collapsed and
@@ -297,15 +311,16 @@ select.form-control-lg {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
       -webkit-justify-content: center;
-      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
       margin-bottom: 0;
+
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
     }
 
     // Inline-block all the things for "inline"
@@ -314,6 +329,10 @@ select.form-control-lg {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      margin-bottom: 0;
+
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
@@ -322,17 +341,14 @@ select.form-control-lg {
       -ms-flex-flow: row wrap;
       flex-flow: row wrap;
       -webkit-box-align: center;
-      -webkit-align-items: center;
       -ms-flex-align: center;
-      align-items: center;
-      margin-bottom: 0;
     }
 
     // Allow folks to *not* use `.form-group`
     .form-control {
       display: inline-block;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
     }
 
     // Make static controls behave like regular ones
@@ -351,36 +367,48 @@ select.form-control-lg {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
       -webkit-justify-content: center;
-      -ms-flex-pack: center;
       justify-content: center;
-      width: auto;
+      -webkit-align-items: center;
+      align-items: center;
       padding-left: 0;
+      width: auto;
+
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
     }
+
     .form-check-input {
       position: relative;
+
       margin-top: 0;
       margin-right: $form-check-input-margin-x;
       margin-left: 0;
     }
 
     .custom-control {
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
       -webkit-justify-content: center;
-      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
     }
+
     .custom-control-label {
       margin-bottom: 0;
     }
   }
+
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center
 }

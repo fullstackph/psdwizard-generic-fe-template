@@ -1,47 +1,58 @@
 // VARIABLES
 .block-var {
-position: absolute;
-$width: 10px;
-top: 0;
-$height: 20px;
-height: $height;
-width: $width;
+  $width: 10px;
+  $height: 20px;
+
+  position: absolute;
+  top: 0;
+
+  width: $width;
+  height: $height;
 }
 
 // CHILD SPACING
 .block-child {
-position: absolute;
-span {
-display: inline-block;
-}
-width: 50%;
-&__element {
-display: none;}
-top: 0;
+  position: absolute;
+  top: 0;
+
+  width: 50%;
+
+  span {
+    display: inline-block;
+  }
+
+  &__element {
+    display: none;
+  }
 }
 
 // @ RULE SPACING
 .block-at {
-@media (min-width: 100px) {
-display: none;
-}
-border: none;
-@media (min-width: 100px) {
-display: none;
-}
+  border: none;
+
+  @media (min-width: 100px) {
+    display: none;
+  }
+
+  @media (min-width: 100px) {
+    display: none;
+  }
 }
 
 // CHILD LINES
-.block-empty-lines-child{
+.block-empty-lines-child {
   position: absolute;
+
   span {
-      display: inline-block;
+    display: inline-block;
   }
+
   &__element {
-      display: none;
+    display: none;
   }
+
   &:hover {
-      top: 0;
+    top: 0;
   }
 }
 
@@ -50,167 +61,180 @@ display: none;
 .block-empty-line-media-rules {
   @media (min-width: 1px) {}
 
-
-
   @media (min-width: 2px) {}
+
   @media (min-width: 3px) {}
 }
 
 // SPACE BEFORE COMMENT
 .comments-before-spacing {
   display: inline-block;
+
   /* upline comment 1 */
   /* upline comment 2 */
   font-style: italic;
-  border-bottom: 1px solid red; /* trololo 1 */ /* trololo 2 */
+
+  border-bottom: 1px solid red;
+  /* trololo 1 */
+  /* trololo 2 */
+
   /* arrow */
   &:before {
-      /* yeah */
-      content: "";
+    /* yeah */
+    content: "";
   }
+
   /* thing */
   &:after {
-      /* joy */
-      display: none;
+    /* joy */
+    display: none;
   }
+
   &__element {
-      /* sdfsf */
-      display: none;
+    /* sdfsf */
+    display: none;
   }
 }
 
 // SELECTORS ON ONE LINE
-.foo, .bar {
+.foo,
+.bar {
   display: block;
 }
 
 // SINGLE SPACE BETWEEN THE PROPERTY AND VALUE
 .foo {
-  padding : 1px;
-  margin:1px;
+  padding: 1px;
+  margin: 1px;
 }
 
 
 // RANDOM PROPERTIES ORDER
 .all-properties {
-top: 0;
-position: relative;
-padding-right: 0;
-left: 0;
-vertical-align: middle;
-float: center;
-padding-top: 0;
-clear: both;
-padding: 0;
-content: '';
-border-left: 1px red solid;
-font-family: sans-serif;
-border-bottom: 1px red solid;
-padding-bottom: 0;
-padding-left: 0;
-margin-top: 0;
-column-width: 0;
-z-index: 1;
-font-size: 16px;
-margin-right: 0;
-border-top-color: red;
-margin-bottom: 0;
-margin: 0;
-word-break: break-word;
-word-spacing: 1px;
-text-shadow: 1px 1px 2px pink;
-hyphens: auto;
-margin-left: 0;
-border-right: 1px red solid;
-border-top: 1px red solid;
-right: 0;
-bottom: 0;
-border-color: red;
-color: red;
-font-style: italic;
-text-transform: uppercase;
-max-width: 0;
-letter-spacing: 1px;
-font-weight: 500;
-height: 0;
-column-count: 4;
-min-height: 0;
-max-height: 0;
-text-rendering: optimizeLegibility;
-line-height: 1;
-overflow: hidden;
-width: 0;
-text-align: left;
-min-width: 0;
-white-space: normal;
-text-decoration: underline;
-background-image: url(...);
-text-indent: 1px;
-text-overflow: ellipsis;
-background-repeat: no-repeat;
-background-position: center;
-list-style-position: inside;
-list-style-type: square;
-background-attachment: fixed;
-list-style-image: none;
-background-size: contain;
-background-color: red;
-border: 1px red solid;
-border-width: 1px;
-transition: all 3s ease;
-transition-property: all;
-transition-duration: 3s;
-border-top-width: 1px;
-border-right-width: 1px;
-border-bottom-width: 1px;
-transition-delay: 1s;
-border-left-width: 1px;
-border-right-color: red;
-border-bottom-color: red;
-transition-timing-function: ease;
-border-left-color: red;
-border-style: solid;
-border-bottom-left-radius: 5px;
-border-top-left-radius: 5px;
-border-image: none;
-border-collapse: collapse;
-border-right-style: solid;
-border-spacing: 0;
-outline: none;
-box-shadow: 10px 5px 5px red;
-outline-offset: 0;
-flex-direction: column;
-border-left-style: solid;
-border-top-style: solid;
-border-bottom-right-radius: 5px;
-border-radius: 5px;
-display: flex;
-border-top-right-radius: 5px;
-justify-content: flex-end;
-align-items: center;
-flex-grow: 1;
-order: 1;
-border-bottom-style: solid;
-@extend another-class;
-flex-shrink: 1;
-flex-wrap: wrap;
-background-clip: padding-box;
-flex-basis: 1;
-visibility: visible;
-opacity: 1;
-pointer-events: auto;
-cursor: pointer;
-direction: ltr;
-user-select: auto;
-filter: blur(5px);
-backface-visibility: hidden;
-transform: scale(1);
-animation: slidein 3s ease-in 1s infinite reverse both running;
-animation-name: slidein;
-animation-duration: 3s;
-animation-timing-function: ease;
-animation-iteration-count: infinite;
-animation-delay: 3s;
-animation-play-state: running;
-animation-fill-mode: forwards;
+  @extend another-class;
+
+  content: '';
+
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  order: 1;
+  vertical-align: middle;
+  float: center;
+  clear: both;
+  padding: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  margin: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  column-count: 4;
+  column-width: 0;
+
+  font-family: sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: red;
+  text-align: left;
+  text-decoration: underline;
+  text-indent: 1px;
+  text-overflow: ellipsis;
+  text-rendering: optimizeLegibility;
+  text-shadow: 1px 1px 2px pink;
+  text-transform: uppercase;
+  word-spacing: 1px;
+  word-break: break-word;
+  white-space: normal;
+  hyphens: auto;
+  list-style-type: square;
+  list-style-position: inside;
+  list-style-image: none;
+
+  background-attachment: fixed;
+  background-color: red;
+  background-image: url(...);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px red solid;
+  border-top: 1px red solid;
+  border-right: 1px red solid;
+  border-bottom: 1px red solid;
+  border-left: 1px red solid;
+  border-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-color: red;
+  border-top-color: red;
+  border-right-color: red;
+  border-bottom-color: red;
+  border-left-color: red;
+  border-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-image: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  outline: none;
+  outline-offset: 0;
+  box-shadow: 10px 5px 5px red;
+  background-clip: padding-box;
+
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: auto;
+  direction: ltr;
+  backface-visibility: hidden;
+  filter: blur(5px);
+  transition: all 3s ease;
+  transition-property: all;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  transition-delay: 1s;
+  transform: scale(1);
+  animation: slidein 3s ease-in 1s infinite reverse both running;
+  animation-name: slidein;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
