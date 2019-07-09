@@ -6,22 +6,17 @@
 
 .carousel-inner {
   position: relative;
-
   width: 100%;
   overflow: hidden;
 }
 
 .carousel-item {
   position: relative;
-
   display: none;
   align-items: center;
   width: 100%;
-
-  backface-visibility: hidden;
-
   @include transition($carousel-transition);
-
+  backface-visibility: hidden;
   perspective: 1000px;
 }
 
@@ -75,58 +70,42 @@
   position: absolute;
   top: 0;
   bottom: 0;
-
   // Use flex for alignment (1-3)
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-
-  /* 1. allow flex styles*/
-  -webkit-justify-content: center;
-  justify-content: center;
-
-  /* 3. horizontally center contents*/
+  display: flex; /* 1. allow flex styles*/
+  -webkit-box-align: center;
   -webkit-align-items: center;
-  align-items: center;
-
-  /* 2. vertically center contents*/
+  -ms-flex-align: center;
+  align-items: center; /* 2. vertically center contents*/
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; /* 3. horizontally center contents*/
   width: $carousel-control-width;
-
   color: $carousel-control-color;
   text-align: center;
-
   opacity: $carousel-control-opacity;
-
   // We can't have a transition here because WebKit cancels the carousel
   // animation if you trip this while in the middle of another animation.
+
   // Hover/focus state
   @include hover-focus {
     color: $carousel-control-color;
     text-decoration: none;
-
     outline: 0;
-
     opacity: .9;
   }
-
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center
 }
-
 .carousel-control-prev {
   left: 0;
-
   @if $enable-gradients {
     background: linear-gradient(90deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .001));
   }
 }
-
 .carousel-control-next {
   right: 0;
-
   @if $enable-gradients {
     background: linear-gradient(270deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .001));
   }
@@ -138,16 +117,12 @@
   display: inline-block;
   width: $carousel-control-icon-width;
   height: $carousel-control-icon-width;
-
-  background-size: 100% 100%;
-
   background: transparent no-repeat center center;
+  background-size: 100% 100%;
 }
-
 .carousel-control-prev-icon {
   background-image: $carousel-control-prev-icon-bg;
 }
-
 .carousel-control-next-icon {
   background-image: $carousel-control-next-icon-bg;
 }
@@ -164,29 +139,31 @@
   bottom: 10px;
   left: 0;
   z-index: 15;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
   -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding-left: 0; // override <ol> default
-
   // Use the .carousel-control's width as margin so we don't overlay those
   margin-right: $carousel-control-width;
   margin-left: $carousel-control-width;
+  list-style: none;
 
   li {
     position: relative;
-
-    margin-right: $carousel-indicator-spacer;
-    margin-left: $carousel-indicator-spacer;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 0 1 auto;
     width: $carousel-indicator-width;
     height: $carousel-indicator-height;
-
+    margin-right: $carousel-indicator-spacer;
+    margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
-
     background-color: rgba($carousel-indicator-active-bg, .5);
 
     // Use pseudo classes to increase the hit area by 10px on top and bottom.
@@ -194,39 +171,25 @@
       position: absolute;
       top: -10px;
       left: 0;
-
       display: inline-block;
       width: 100%;
       height: 10px;
-
       content: "";
     }
-
     &::after {
       position: absolute;
       bottom: -10px;
       left: 0;
-
       display: inline-block;
       width: 100%;
       height: 10px;
-
       content: "";
     }
-
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
-    -ms-flex: 1 0 auto;
-    flex: 0 1 auto
   }
 
   .active {
     background-color: $carousel-indicator-active-bg;
   }
-
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  list-style: none
 }
 
 
@@ -240,10 +203,8 @@
   bottom: 20px;
   left: ((100% - $carousel-caption-width) / 2);
   z-index: 10;
-
   padding-top: 20px;
   padding-bottom: 20px;
-
   color: $carousel-caption-color;
   text-align: center;
 }

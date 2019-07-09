@@ -2,24 +2,20 @@
 // -------------------------
 
 .#{$fa-css-prefix}-stack {
-  position: relative;
-
   display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
   vertical-align: middle;
   width: 2em;
-  height: 2em;
-
-  line-height: 2em;
 }
 
 .#{$fa-css-prefix}-stack-1x,
 .#{$fa-css-prefix}-stack-2x {
-  position: absolute;
   left: 0;
-
-  width: 100%;
-
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
 
 .#{$fa-css-prefix}-stack-1x {

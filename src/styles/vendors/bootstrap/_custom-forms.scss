@@ -10,10 +10,9 @@
 
 .custom-control {
   position: relative;
-
   display: block;
-  padding-left: $custom-control-gutter;
   min-height: (1rem * $line-height-base);
+  padding-left: $custom-control-gutter;
 }
 
 .custom-control-inline {
@@ -27,31 +26,27 @@
 .custom-control-input {
   position: absolute;
   z-index: -1; // Put the input behind the label so it doesn't overlay text
-
   opacity: 0;
 
-  &:checked~.custom-control-label::before {
+  &:checked ~ .custom-control-label::before {
     color: $custom-control-indicator-checked-color;
-
     @include gradient-bg($custom-control-indicator-checked-bg);
     @include box-shadow($custom-control-indicator-checked-box-shadow);
   }
 
-  &:focus~.custom-control-label::before {
+  &:focus ~ .custom-control-label::before {
     // the mixin is not used here to make sure there is feedback
     box-shadow: $custom-control-indicator-focus-box-shadow;
   }
 
-  &:active~.custom-control-label::before {
+  &:active ~ .custom-control-label::before {
     color: $custom-control-indicator-active-color;
-
     background-color: $custom-control-indicator-active-bg;
-
     @include box-shadow($custom-control-indicator-active-box-shadow);
   }
 
   &:disabled {
-    ~.custom-control-label {
+    ~ .custom-control-label {
       color: $custom-control-label-disabled-color;
 
       &::before {
@@ -73,19 +68,14 @@
     position: absolute;
     top: (($line-height-base - $custom-control-indicator-size) / 2);
     left: 0;
-
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
-
-    background-color: $custom-control-indicator-bg;
-
     pointer-events: none;
-    user-select: none;
-
-    @include box-shadow($custom-control-indicator-box-shadow);
-
     content: "";
+    user-select: none;
+    background-color: $custom-control-indicator-bg;
+    @include box-shadow($custom-control-indicator-box-shadow);
   }
 
   // Foreground (icon)
@@ -93,16 +83,13 @@
     position: absolute;
     top: (($line-height-base - $custom-control-indicator-size) / 2);
     left: 0;
-
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
-
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: $custom-control-indicator-bg-size;
-
     content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: $custom-control-indicator-bg-size;
   }
 }
 
@@ -116,33 +103,30 @@
     @include border-radius($custom-checkbox-indicator-border-radius);
   }
 
-  .custom-control-input:checked~.custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::before {
       @include gradient-bg($custom-control-indicator-checked-bg);
     }
-
     &::after {
       background-image: $custom-checkbox-indicator-icon-checked;
     }
   }
 
-  .custom-control-input:indeterminate~.custom-control-label {
+  .custom-control-input:indeterminate ~ .custom-control-label {
     &::before {
       @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
       @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
     }
-
     &::after {
       background-image: $custom-checkbox-indicator-icon-indeterminate;
     }
   }
 
   .custom-control-input:disabled {
-    &:checked~.custom-control-label::before {
+    &:checked ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
-
-    &:indeterminate~.custom-control-label::before {
+    &:indeterminate ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
@@ -157,18 +141,17 @@
     border-radius: $custom-radio-indicator-border-radius;
   }
 
-  .custom-control-input:checked~.custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::before {
       @include gradient-bg($custom-control-indicator-checked-bg);
     }
-
     &::after {
       background-image: $custom-radio-indicator-icon-checked;
     }
   }
 
   .custom-control-input:disabled {
-    &:checked~.custom-control-label::before {
+    &:checked ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
@@ -183,16 +166,21 @@
 
 .custom-select {
   display: inline-block;
-  vertical-align: middle;
-  padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
   width: 100%;
   height: $custom-select-height;
-
+  padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
   line-height: $custom-select-line-height;
   color: $custom-select-color;
-
+  vertical-align: middle;
+  background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
   background-size: $custom-select-bg-size;
   border: $custom-select-border-width solid $custom-select-border-color;
+  @if $enable-rounded {
+    border-radius: $custom-select-border-radius;
+  } @else {
+    border-radius: 0;
+  }
+  appearance: none;
 
   &:focus {
     border-color: $custom-select-focus-border-color;
@@ -206,22 +194,19 @@
       // in IE and (under certain conditions) Edge.
       // See https://github.com/twbs/bootstrap/issues/19398.
       color: $input-color;
-
       background-color: $input-bg;
     }
   }
 
   &[multiple],
   &[size]:not([size="1"]) {
-    padding-right: $custom-select-padding-x;
     height: auto;
-
+    padding-right: $custom-select-padding-x;
     background-image: none;
   }
 
   &:disabled {
     color: $custom-select-disabled-color;
-
     background-color: $custom-select-disabled-bg;
   }
 
@@ -229,32 +214,19 @@
   &::-ms-expand {
     opacity: 0;
   }
-
-  @if $enable-rounded {
-    border-radius: $custom-select-border-radius;
-  }
-
-  @else {
-    border-radius: 0;
-  }
-
-  background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
-  appearance: none
 }
 
 .custom-select-sm {
+  height: $custom-select-height-sm;
   padding-top: $custom-select-padding-y;
   padding-bottom: $custom-select-padding-y;
-  height: $custom-select-height-sm;
-
   font-size: $custom-select-font-size-sm;
 }
 
 .custom-select-lg {
+  height: $custom-select-height-lg;
   padding-top: $custom-select-padding-y;
   padding-bottom: $custom-select-padding-y;
-  height: $custom-select-height-lg;
-
   font-size: $custom-select-font-size-lg;
 }
 
@@ -265,24 +237,21 @@
 
 .custom-file {
   position: relative;
-
   display: inline-block;
-  margin-bottom: 0;
   width: 100%;
   height: $custom-file-height;
+  margin-bottom: 0;
 }
 
 .custom-file-input {
   position: relative;
   z-index: 2;
-
-  margin: 0;
   width: 100%;
   height: $custom-file-height;
-
+  margin: 0;
   opacity: 0;
 
-  &:focus~.custom-file-control {
+  &:focus ~ .custom-file-control {
     border-color: $custom-file-focus-border-color;
     box-shadow: $custom-file-focus-box-shadow;
 
@@ -291,9 +260,8 @@
     }
   }
 
-  @each $lang,
-  $value in $custom-file-text {
-    &:lang(#{$lang})~.custom-file-label::after {
+  @each $lang, $value in $custom-file-text {
+    &:lang(#{$lang}) ~ .custom-file-label::after {
       content: $value;
     }
   }
@@ -305,15 +273,14 @@
   right: 0;
   left: 0;
   z-index: 1;
-
-  padding: $custom-file-padding-y $custom-file-padding-x;
   height: $custom-file-height;
-
+  padding: $custom-file-padding-y $custom-file-padding-x;
   line-height: $custom-file-line-height;
   color: $custom-file-color;
-
   background-color: $custom-file-bg;
   border: $custom-file-border-width solid $custom-file-border-color;
+  @include border-radius($custom-file-border-radius);
+  @include box-shadow($custom-file-box-shadow);
 
   &::after {
     position: absolute;
@@ -321,22 +288,14 @@
     right: 0;
     bottom: 0;
     z-index: 3;
-
     display: block;
-    padding: $custom-file-padding-y $custom-file-padding-x;
     height: calc(#{$custom-file-height} - #{$custom-file-border-width} * 2);
-
+    padding: $custom-file-padding-y $custom-file-padding-x;
     line-height: $custom-file-line-height;
     color: $custom-file-button-color;
-
-    border-left: $custom-file-border-width solid $custom-file-border-color;
-
-    @include gradient-bg($custom-file-button-bg);
-    @include border-radius(0 $custom-file-border-radius $custom-file-border-radius 0);
-
     content: "Browse";
+    @include gradient-bg($custom-file-button-bg);
+    border-left: $custom-file-border-width solid $custom-file-border-color;
+    @include border-radius(0 $custom-file-border-radius $custom-file-border-radius 0);
   }
-
-  @include border-radius($custom-file-border-radius);
-  @include box-shadow($custom-file-box-shadow)
 }

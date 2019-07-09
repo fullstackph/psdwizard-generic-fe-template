@@ -75,6 +75,7 @@ display: none;
   }
   &__element {
       /* sdfsf */
+      display: none;
   }
 }
 
@@ -101,6 +102,7 @@ float: center;
 padding-top: 0;
 clear: both;
 padding: 0;
+content: '';
 border-left: 1px red solid;
 font-family: sans-serif;
 border-bottom: 1px red solid;

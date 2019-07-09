@@ -6,15 +6,19 @@
 
 .btn {
   display: inline-block;
-  vertical-align: middle;
-
   font-weight: $btn-font-weight;
   text-align: center;
   white-space: nowrap;
-
-  border: $btn-border-width solid transparent;
-
+  vertical-align: middle;
   user-select: none;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
 
   &:focus,
   &.focus {
@@ -26,7 +30,6 @@
   &.disabled,
   &:disabled {
     opacity: $btn-disabled-opacity;
-
     @include box-shadow(none);
   }
 
@@ -38,20 +41,11 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
     background-image: none;
+    @include box-shadow($btn-active-box-shadow);
 
     &:focus {
       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
     }
-
-    @include box-shadow($btn-active-box-shadow)
-  }
-
-  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
-  @include transition($btn-transition);
-
-  // Share hover and focus styles
-  @include hover-focus {
-    text-decoration: none;
   }
 }
 
@@ -66,15 +60,13 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
@@ -89,13 +81,18 @@ $value in $theme-colors {
 .btn-link {
   font-weight: $font-weight-normal;
   color: $link-color;
-
   background-color: transparent;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+    border-color: transparent;
+  }
 
   &:focus,
   &.focus {
     text-decoration: $link-hover-decoration;
-
     border-color: transparent;
     box-shadow: none;
   }
@@ -103,14 +100,6 @@ $value in $theme-colors {
   &:disabled,
   &.disabled {
     color: $btn-link-disabled-color;
-  }
-
-  @include hover {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-
-    background-color: transparent;
-    border-color: transparent;
   }
 
   // No need for an active state here
@@ -139,7 +128,7 @@ $value in $theme-colors {
   width: 100%;
 
   // Vertically space out multiple block buttons
-  +.btn-block {
+  + .btn-block {
     margin-top: $btn-block-spacing-y;
   }
 }

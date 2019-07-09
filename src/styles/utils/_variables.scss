@@ -8,20 +8,11 @@
 $font-opensans: 'Open Sans';
 
 /// @type List
-$text-font-stack: $font-opensans,
-'Helvetica Neue Light',
-'Helvetica Neue',
-'Helvetica',
-'Arial',
-sans-serif !default;
+$text-font-stack: $font-opensans, 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
-$code-font-stack: 'Courier New',
-'DejaVu Sans Mono',
-'Bitstream Vera Sans Mono',
-'Monaco',
-monospace !default;
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
 
 /// Copy text color
 /// @type Color

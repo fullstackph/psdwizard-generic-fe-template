@@ -10,6 +10,9 @@
             "@extend"
         ],
         [
+            "content"
+        ],
+        [
             "position",
             "top",
             "right",
@@ -137,43 +140,6 @@
             "animation-iteration-count",
             "animation-fill-mode",
             "animation-play-state"
-        ],
-        [
-            "&:before",
-            "&:after",
-            "&:hover",
-            "&:active",
-            "&:focus",
-            "&:visited",
-            "&:checked",
-            "&:default",
-            "&:empty",
-            "&:enabled",
-            "&:disabled",
-            "&:in-range",
-            "&:out-of-range",
-            "&:indeterminate",
-            "&:valid",
-            "&:invalid",
-            "&:target",
-            "&::placeholder",
-            "&::selection",
-            "&::first-letter",
-            "&::first-line",
-            "&:first-child",
-            "&:nth-child()",
-            "&:nth-last-child()",
-            "&:last-child",
-            "&:only-child",
-            "&:first-of-type",
-            "&:nth-of-type()",
-            "&:nth-last-of-type()",
-            "&:last-of-type",
-            "&:only-of-type",
-            "&::-ms-clear",
-            "&::-webkit-specific-stuff",
-            "&::-moz-specific-stuff",
-            "&::-o-specific-stuff"
         ],
         [
             ">child"

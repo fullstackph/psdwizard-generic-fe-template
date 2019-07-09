@@ -5,18 +5,14 @@
 
 @mixin sr-only {
   position: absolute;
-
-  padding: 0;
   width: 1px;
   height: 1px;
+  padding: 0;
   overflow: hidden;
-
-  white-space: nowrap;
-
-  border: 0;
-
   clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
   clip-path: inset(50%);
+  border: 0;
 }
 
 // Use in conjunction with .sr-only to only display content when it's focused.
@@ -26,18 +22,14 @@
 // Credit: HTML5 Boilerplate
 
 @mixin sr-only-focusable {
-
   &:active,
   &:focus {
     position: static;
-
     width: auto;
     height: auto;
     overflow: visible;
-
-    white-space: normal;
-
     clip: auto;
+    white-space: normal;
     clip-path: none;
   }
 }

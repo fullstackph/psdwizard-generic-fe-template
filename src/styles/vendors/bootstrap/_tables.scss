@@ -3,27 +3,24 @@
 //
 
 .table {
-  margin-bottom: $spacer;
   width: 100%;
   max-width: 100%;
-
+  margin-bottom: $spacer;
   background-color: $table-bg; // Reset for nesting within parents with `background-color`.
 
   th,
   td {
-    vertical-align: top;
     padding: $table-cell-padding;
-
+    vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
 
   thead th {
     vertical-align: bottom;
-
     border-bottom: (2 * $table-border-width) solid $table-border-color;
   }
 
-  tbody+tbody {
+  tbody + tbody {
     border-top: (2 * $table-border-width) solid $table-border-color;
   }
 
@@ -38,7 +35,6 @@
 //
 
 .table-sm {
-
   th,
   td {
     padding: $table-cell-padding-sm;
@@ -59,7 +55,6 @@
   }
 
   thead {
-
     th,
     td {
       border-bottom-width: (2 * $table-border-width);
@@ -97,8 +92,7 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   @include table-row-variant($color, theme-color-level($color, -9));
 }
 
@@ -114,7 +108,6 @@ $value in $theme-colors {
   .thead-dark {
     th {
       color: $table-dark-color;
-
       background-color: $table-dark-bg;
       border-color: $table-dark-border-color;
     }
@@ -123,7 +116,6 @@ $value in $theme-colors {
   .thead-light {
     th {
       color: $table-head-color;
-
       background-color: $table-head-bg;
       border-color: $table-border-color;
     }
@@ -132,7 +124,6 @@ $value in $theme-colors {
 
 .table-dark {
   color: $table-dark-color;
-
   background-color: $table-dark-bg;
 
   th,
@@ -175,15 +166,14 @@ $value in $theme-colors {
       @include media-breakpoint-down($breakpoint) {
         display: block;
         width: 100%;
-
-        // Prevent double border on horizontal scroll due to use of `display: block;`
-        >.table-bordered {
-          border: 0;
-        }
-
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar // See https://github.com/twbs/bootstrap/pull/10057
+        -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+        // Prevent double border on horizontal scroll due to use of `display: block;`
+        > .table-bordered {
+          border: 0;
+        }
       }
     }
   }

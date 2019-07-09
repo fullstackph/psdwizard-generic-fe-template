@@ -18,7 +18,7 @@ module.exports = (gulp, path) => {
 
     gulp.watch([path.baseUrl + '/src/**/*.html'])
       .on('all', gulp.series('assets:html', 'reload'))
-    gulp.watch(['../src/styles/**/*.scss', '!../src/styles/main.scss'])
+    gulp.watch(['../src/styles/**/*.scss', '!../src/styles/main.scss', '!../src/styles/utils/*.scss', '!../src/styles/vendors/**/*.scss'])
       .on('all', gulp.series('assets:sass-sort'))
     gulp.watch([path.baseUrl + '/src/**/*.scss'])
       .on('all', gulp.series('assets:sass', 'reload'))
