@@ -1,16 +1,10 @@
-//main: ../../main.scss
 // Base class
 //
 // Kickstart any navigation component with a set of style resets. Works with
 // `<nav>`s or `<ul>`s.
 
 .nav {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
@@ -28,6 +22,8 @@
   // Disabled state lightens text
   &.disabled {
     color: $nav-link-disabled-color;
+    pointer-events: none;
+    cursor: default;
   }
 }
 
@@ -96,9 +92,6 @@
 
 .nav-fill {
   .nav-item {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     text-align: center;
   }
@@ -106,10 +99,7 @@
 
 .nav-justified {
   .nav-item {
-    -ms-flex-preferred-size: 0;
     flex-basis: 0;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
     flex-grow: 1;
     text-align: center;
   }
