@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const gulp = require('gulp')
+const gulp = require('gulp');
 
 const path = {
   // baseUrl: process.env.PWD,
@@ -12,25 +12,26 @@ const path = {
 
   sass: {
     outputStyle: 'compressed',
-    includePaths: []
+    includePaths: [],
   },
 
   sources: {
     sass: [
       // process.env.PWD + '/src/styles/main.scss'
-      '../src/styles/main.scss'
-    ]
-  }
-}
+      '../src/styles/main.scss',
+    ],
+  },
+};
 
-require('./serve')(gulp, path)
-require('./assets')(gulp, path)
+require('./serve')(gulp, path);
+require('./assets')(gulp, path);
 
-gulp.task('default', gulp.series(
-  gulp.parallel(
-    'assets'
-  ),
-  'serve',
+gulp.task(
+  'default',
+  gulp.series(
+    gulp.parallel('assets'),
+    'serve',
 
-  done => done()
-))
+    (done) => done()
+  )
+);
