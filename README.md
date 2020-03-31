@@ -8,6 +8,9 @@
 * Deploy to `gh-pages` with `yarn deploy`
 
 ## Changelog
+### 1.2.2
+  * fix error where building without going through yarn dev fails
+  * added `.prettierrc`
 ### 1.2.1
   * add sample for multi-page bundles, add dependency only as needed
 ### 1.2.0
