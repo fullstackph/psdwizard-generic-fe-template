@@ -1,14 +1,14 @@
-AppName.Modules.ThemeModule = (function() {
+AppName.Modules.ThemeModule = (function () {
   //Dependencies
   var core = AppName.Core;
 
   //////////////////////
   // Private Methods //
   ////////////////////
-  var _privateMethod = function() {
+  const _privateMethod = () => {
     // private stuff
 
-    var swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
       },
@@ -18,11 +18,11 @@ AppName.Modules.ThemeModule = (function() {
   /////////////////////
   // Public Methods //
   ///////////////////
-  var init = function() {
+  const init = function () {
     _privateMethod();
   };
 
   return {
-    init: init
+    init: init,
   };
 })();

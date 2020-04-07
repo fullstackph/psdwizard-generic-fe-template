@@ -9,7 +9,8 @@ const imagemin = require('gulp-imagemin');
 // const imageminPngquant = require('imagemin-pngquant')
 // const imageminGiflossy = require('imagemin-giflossy')
 const useref = require('gulp-useref');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
+const terser = require('gulp-terser');
 const gulpIf = require('gulp-if');
 
 module.exports = (gulp, path) => {
@@ -66,12 +67,15 @@ module.exports = (gulp, path) => {
   //   done()
   // })
 
-  gulp.task('build:useref', function() {
-    return gulp
-      .src(`${path.src}*.html`)
-      .pipe(useref())
-      .pipe(gulpIf('*.js', uglify()))
-      .pipe(gulp.dest(`${path.dist}`));
+  gulp.task('build:useref', function () {
+    return (
+      gulp
+        .src(`${path.src}*.html`)
+        .pipe(useref())
+        // .pipe(gulpIf('*.js', uglify()))
+        .pipe(gulpIf('*.js', terser()))
+        .pipe(gulp.dest(`${path.dist}`))
+    );
   });
 
   gulp.task(

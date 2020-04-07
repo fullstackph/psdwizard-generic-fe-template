@@ -8,6 +8,8 @@
 * Deploy to `gh-pages` with `yarn deploy`
 
 ## Changelog
+### 1.3.0
+  * add support to ES6
 ### 1.2.2
   * fix error where building without going through yarn dev fails
   * added `.prettierrc`
