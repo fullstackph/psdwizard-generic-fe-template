@@ -1,139 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="format-detection" content="telephone=no" />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="format-detection" content="telephone=no">
+    <title>Razer</title>
 
-  <title>Modular Gulp Template</title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./styles/main.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!--[if lte IE 9]>
+      <link href="stylesheets/non-responsive.css" rel="stylesheet" />
+    <![endif]-->
 
-  <link rel="icon" href="./assets/images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="./styles/main.min.css">
-  <!--[if lte IE 9]>
-    <link href="stylesheets/non-responsive.css" rel="stylesheet" />
-  <![endif]-->
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
+    <![endif]-->
+  </head>
 
-<body>
-  <!--[if lt IE 9]>
-    <div id="browser-notification" class="alert alert-danger">
-      <div class="container">
-        We are sorry but it looks like your <a href="http://www.whatbrowser.org/intl/en_us/" target=_blank>browser</a> doesn't support our website features. In order to get the full experience please download a new version of <a title="Download Chrome" href="http://www.google.com/chrome/" target=_blank>Chrome</a>, <a title="Download Safari" href="http://www.apple.com/safari/download/" target=_blank>Safari</a>, <a title="Download Firefox" href="http://www.mozilla.com/firefox/" target=_blank>Firefox</a>, or <a title="Download Internet Explorer" href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target=_blank>Internet Explorer</a>.
-      </div>
-    </div>
-  <![endif]-->
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">
+              <img src="./assets/images/logo.png" alt="Razer-Logo" />
+            </a>
+            <div class="nav-links">
+              <ul class="navbar-nav me-auto mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >PRODUCTS</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">COMMUNITY</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">CONTACT US</a>
+                </li>
+              </ul>
 
-  <header>
-    <nav class="navbar navbar-expand-md">
-      <div class="container">
-        <a href="#" class="navbar-brand">Navbar</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a href="#" class="nav-link">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Link</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main class="home">
-    <div class="section-intro">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="content">
-              <h1>Bootstrap starter template </h1>
-              <a href="about.html">Go to about page.</a>
-              <p>Use this document as a way to quickly start any new project.
-                <br> All you get is this text and a mostly barebones HTML document.</p>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
+              <button class="btn btn-outline-success" type="submit">
+                BUY NOW
               </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      Hi I am a sample modal
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Swiper -->
-              <div class="swiper-container">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">I'm a pagination slider without navigation. <br/> Swipe Right</div>
-                  <div class="swiper-slide">Swipe Right Again</div>
-                  <div class="swiper-slide">Swipe Left</div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-              </div>
-
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
+      </nav>
+    </header>
 
-  <!-- build:js scripts/main.min.js -->
-  <script src="./scripts/vendors/jquery.min.js"></script>
-  <script src="./scripts/vendors/popper.min.js"></script>
-  <script src="./scripts/vendors/bootstrap.min.js"></script>
-  <script src="./scripts/vendors/swiper.min.js"></script>
-  <script src="./scripts/core/base.js"></script>
-  <script src="./scripts/modules/theme-module.js"></script>
-  <script src="./scripts/bootstrapper.js"></script>
-  <!-- endbuild -->
+    <main class="home">
+      <section id="banner">
+        <div>
+          <h1>
+            SUPREME WIRELESS <br />
+            IMMERSION
+          </h1>
+          <p>
+            When it comes to gaming immersion, sound plays a critical role. It
+            engages your sense of hearing to determine the atmosphere and mood,
+            creating a lifelike experience that lets you truly embody your game
+            character. Standing by this philosophy, we’ve built a headset with
+            THX Spatial Audio to bring you 360° positional sound, giving you
+            greater spatial awareness. We’ve also added ergonomic design
+            features to make this one of the most comfortable daily drivers for
+            gaming. This is the Razer Nari.
+          </p>
+          <div class="banner-images mt-5">
+            <img
+              src="./assets/images/razer-nari-thx-logo.png"
+              alt=""
+              height="92"
+            />
+            <img
+              class="mx-3"
+              src="./assets/images/razer-nari-chroma-logo.png"
+              alt=""
+              height="92"
+            />
+          </div>
+        </div>
+        <div class="right">
+          <img src="./assets/images/razer-nari-logo.svg" alt="" width="250" />
+        </div>
+      </section>
+      <section id="features">
+        <div class="features-content">
+          <h3>COMPLEMENTED BY COMFORT</h3>
+          <p class="mb-5">
+            The Razer Nari is designed so that its immersive technology is
+            complemented by comfortable features, letting you escape into game
+            worlds for hours without strain.
+          </p>
+          <div class="features">
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>Cooling Gel-Infused Cushions</h4>
+              <p>Reduces heat build-up during intense gaming sessions</p>
+            </div>
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>Auto-Adjusting Headband</h4>
+              <p>Maximum adjustability to fit seamlessly onto any head size</p>
+            </div>
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>Cooling Gel-Infused Cushions</h4>
+              <p>Reduces heat build-up during intense gaming sessions</p>
+            </div>
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>Game/Chat Balance</h4>
+              <p>
+                Fine-tune between game and chat volume for the perfect mix that
+                lets you enjoy immersive sound without interrupting team
+                communication.
+              </p>
+            </div>
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>2.4GHz Wireless Audio</h4>
+              <p>
+                Get lag-free, high-fidelity gaming audio with a wireless range
+                of up to 12 meters smoothly without disconnection.
+              </p>
+            </div>
+            <div class="feature-item">
+              <img
+                class="mb-3"
+                src="./assets/images/razer-nari-Wireless-Audio-icon.svg"
+                alt=""
+                height="38"
+              />
+              <h4>Wired Model</h4>
+              <p>Reduces heat build-up during intense gaming sessions</p>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
 
-  <!--[if lte IE 9]>
-    <script src="javascripts/non-responsive.js"></script>
-  <![endif]-->
-</body>
+        <div class="products">
+          <h3>PRODUCT IMAGES</h3>
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+              ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- build:js scripts/main.min.js -->
+    <script src="./scripts/slider.js"></script>
+    <script src="./scripts/vendors/jquery.min.js"></script>
+    <script src="./scripts/vendors/popper.min.js"></script>
+    <script src="./scripts/vendors/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./scripts/core/base.js"></script>
+    <script src="./scripts/modules/theme-module.js"></script>
+    <script src="./scripts/bootstrapper.js"></script>
+    <!-- endbuild -->
+
+    <!--[if lte IE 9]>
+      <script src="javascripts/non-responsive.js"></script>
+    <![endif]-->
+  </body>
 </html>

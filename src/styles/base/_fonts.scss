@@ -4,4 +4,9 @@
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
 
-@include font-face($font-opensans, $base-url + 'fonts/', 'opensans-regular', 'opensans-regular');
+@include font-face(
+  $font-montserrat,
+  $base-url + 'fonts/',
+  'Montserrat-Regular',
+  'Montserrat-Regular'
+);
